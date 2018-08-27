@@ -8,3 +8,10 @@
 .error{
     color: red;
 }
+.even{
+    background-color: bisque;
+}
+
+.odd{
+    background-color: aquamarine;
+}

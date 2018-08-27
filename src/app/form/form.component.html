@@ -52,7 +52,8 @@
                         </tr>
                     </thead>
                     <tbody id="tbody">
-                      <tr *ngFor="let emp of EmpList" [class]="Type">
+                      <tr *ngFor="let emp of EmpList; let even = even; let odd = odd" 
+                      [ngClass]="{ odd: odd, even: even }" >
                           <td>{{emp.Name}}</td> 
                           <td>{{emp.Location}}</td>
                           <td>{{emp.Designation}}</td>
