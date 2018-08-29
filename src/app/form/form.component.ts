@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
+import { EmployeesListComponent } from '../employees-list/employees-list.component';
+import { Employee } from '../Employee';
 
 @Component({
   selector: 'app-form',
@@ -7,41 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  EmpList:Array<Employee>=[];
-  obj:Employee
+  
+  Emp:Employee=new Employee();
   ErrorMsg:string="Enter All Inputs."
-  HasError:Boolean=false;
-  constructor() { }
+ 
+  constructor(private _Employee:EmployeeService) { }
 
   ngOnInit() {
-    this.obj=new Employee();
+  
   }
 
   SaveData(): void {
 
-   if(this.obj.Name!=null && this.obj.Location!=null && this.obj.Designation!=null && this.obj.Salary!=null) 
-   {
-    this.HasError=false;
-    this.EmpList.push(this.obj);
-    this.obj=new Employee();
-    
-   }
-   else{
-    this.HasError=true;
-   }
-    
+   this._Employee.AddEmployee(this.Emp);
+    this.Emp=new Employee();
   }
 
 }
 
-class Employee{
-  Name:string;
-  Location:string;
-  Designation:string; 
-  Salary:number;
-}
-
-class Dev extends Employee{
 
 
-}

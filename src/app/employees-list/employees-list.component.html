@@ -1,0 +1,21 @@
+<div>
+  <table class="table">
+      <thead id="thead" class="thead-dark">
+          <tr *ngIf="EmpList.length > 0">
+              <th>Name</th>
+              <th>Location</th>
+              <th>Designation</th>
+              <th>Salary</th>
+          </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr *ngFor="let emp of EmpList; let even = even; let odd = odd" 
+        [ngClass]="{ odd: odd, even: even }" >
+            <td>{{emp.Name}}</td> 
+            <td>{{emp.Location}}</td>
+            <td>{{emp.Designation}}</td>
+            <td>{{emp.Salary}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
