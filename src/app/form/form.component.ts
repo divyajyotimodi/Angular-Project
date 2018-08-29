@@ -9,7 +9,8 @@ export class FormComponent implements OnInit {
 
   EmpList:Array<Employee>=[];
   obj:Employee
-  ErrorMsg:string
+  ErrorMsg:string="Enter All Inputs."
+  HasError:Boolean=false;
   constructor() { }
 
   ngOnInit() {
@@ -20,11 +21,13 @@ export class FormComponent implements OnInit {
 
    if(this.obj.Name!=null && this.obj.Location!=null && this.obj.Designation!=null && this.obj.Salary!=null) 
    {
+    this.HasError=false;
     this.EmpList.push(this.obj);
     this.obj=new Employee();
+    
    }
    else{
-    this.ErrorMsg="Please Fill All fields."
+    this.HasError=true;
    }
     
   }

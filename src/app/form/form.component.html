@@ -12,13 +12,13 @@
 
 <body>
     <div class="container">
-        <div class="error">
+        <div class="error" *ngIf="HasError">
             {{ErrorMsg}}
         </div>
         <form>
             <div class="form-group"> 
                 <label for="Name">Name</label>
-                <input type="text" class="form-control" name="Name" [(ngModel)]="obj.Name">
+                <input type="text" class="form-control" name="Name" [(ngModel)]="obj.Name" [class.error]="HasError">
             </div>
             <div class="form-group">
                 <label for="Designation">Designation</label>
